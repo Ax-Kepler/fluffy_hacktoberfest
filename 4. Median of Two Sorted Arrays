@@ -1,0 +1,29 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) 
+    {
+       vector<int> nums;
+        nums.insert(nums.begin(),nums1.begin(),nums1.end());
+        nums.insert(nums.end(),nums2.begin(),nums2.end());
+        sort(nums.begin(),nums.end());
+        for(vector<int>::iterator i=nums.begin();i!=nums.end();++i)  
+            cout<<*i; 
+        double med;
+        int n;
+        n=nums.size();
+        if(n%2==0)
+        {
+            med = (nums.at(n/2) + nums.at((n/2)-1)) ;
+            med=med/2;
+        }
+        else
+        {
+            med = nums.at(n/2);
+        }
+    return med;
+    }
+    
+};
